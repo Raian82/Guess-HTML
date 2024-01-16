@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Wifi</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="MainStyle.css">
+</head>
+<header> </header>
+<body>
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <span>Menu</span>
+            </div>
+            <i class="bx bx-menu" id="btn"></i>
+        </div>
+        <div class="user">
+            <img src="Images/guess_logo.png" alt="me" class="user-img">
+            <div>
+                <p class="bold">Guess Wifi</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="bx bxs-grid-alt"></i>
+                    <span class="nav-item">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="Pages/ConnectedDevices.html">
+                    <i class="bx bx-devices"></i>
+                    <span class="nav-item">Connected Devices</span>
+                </a>
+                <span class="tooltip">Connected Devices</span>
+            </li>
+            <li>
+                <a href="Pages/Bandwidth.html">
+                    <i class="bx bx-station"></i>
+                    <span class="nav-item">Bandwidth Profiles</span>
+                </a>
+                <span class="tooltip">Bandwidth</span>
+            </li>
+            <li>
+                <a href="Pages/ManageAccount.html">
+                    <i class="bx bxs-user-account"></i>
+                    <span class="nav-item">Manage Accounts</span>
+                </a>
+                <span class="tooltip">Manage Accounts</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-rss"></i>
+                    <span class="nav-item">Whitelists</span>
+                </a>
+                <span class="tooltip">Whitelists</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-info-circle"></i>
+                    <span class="nav-item">About</span>
+                </a>
+                <span class="tooltip">About</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="bx bx-log-out-circle"></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Welcome Admin!</h1>
+        </div>
+    </div>
+
+</body>
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function () {
+        sidebar.classList.toggle('active');
+    };
+</script>
+</html>
