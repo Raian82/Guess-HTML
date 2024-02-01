@@ -7,7 +7,7 @@
 
 .user-img {
     width: 50px;
-    border-radius: 10%;
+    /*border-radius: 1%;*/
     border: 1px;
     opacity: 1;
 }
