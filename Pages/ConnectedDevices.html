@@ -3,81 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Styles\ConnectedDevices.css">
-    <title>Connected Devices</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Dashboard</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Usernames</th>
-                <th>IP Address</th>
-                <th>MAC Address</th>
-                <th>Plan</th>
-                <th>Password</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John Doe</td>
-                <td>192.168.8.1</td>
-                <td>2C:54:91:88:C9:E3</td>
-                <td>Plan</td>
-                <td>Passcode</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div class="search">
+                    <i class="bx bx-search-alt-2"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+        </div>
+
+        <h3 class="i-name">Dashboard</h3>
+        <div class="values">
+            <div class="val-box">
+                <i class="bx bx-user-pin"></i>
+                <div>
+                    <h3>01</h3>
+                    <span>Connected Users</span>
+                </div>
+            </div>
+            <div class="val-box">
+                <i class="bx bxs-user-account"></i>
+                <div>
+                    <h3>159</h3>
+                    <span>User Accounts</span>
+                </div>
+            </div>
+            <div class="val-box">
+                <i class="bx bxs-virus-block"></i>
+                <div>
+                    <h3>10</h3>
+                    <span>Whitelisted Websites</span>
+                </div>
+            </div>
+            <div class="val-box">
+                <i class="bx bx-list-ol"></i>
+                <div>
+                    <h3>01</h3>
+                    <span>Number of Plans</span>
+                </div>
+            </div>
+        </div>
+        <h1 class="name">List of Connected Users</h1>
+        <div class="board">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>IP Address</th>
+                        <th>MAC Address</th>
+                        <th>Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>192.168.1.8</td>
+                        <td>2C:54:91:88:C9:E3</td>
+                        <td>Plan1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </body>
 </html>
-
 <style>
-    
-table {
-    width: 800px;
-    font-family: sans-serif;
-    font-weight: 100;
-    border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 0 0 20px #0000001a;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-th,
-td {
-    background-color: #ffffff33;
-    padding: 15px;
-    color: #fff;
-}
+    body {
+        width: 100%;
+        /*background: #E5E7EB;*/
+        background: #6a11cb;
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+        position: relative;
+        display: flex;
+    }
 
-th {
-    text-align: left;
-}
+    #interface {
+        width: calc(100% - 0px);
+        position: relative;
+    }
 
-thead {
-    background-color: #160A50;
-}
+    #interface .navigation {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #3c2a97;
+        padding: 12px 30px;
+        border-bottom: 3px solid #594ef7;
+        position: fixed;
+        width: calc(100% - 0px);
+    }
 
-tbody tr:hover {
-    background-color: #ffffff4d;
-}
+    #interface .navigation .search {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px 14px;
+        border: 1px solid #d7dbe6;
+        border-radius: 4px;
+        background: white;
+        box-shadow: 0 .4rem .8rem #0005;
+    }
 
-tbody {
-    position: relative;
-}
+    #interface .navigation .search i {
+        margin-right: 14px;
+    }
 
-tbody td:hover:before {
-    content: "";
-    position: absolute;
-    background-color: #ffffff33;
-    left: 0;
-    right: 0;
-    top: -9999px;
-    bottom: -9999px;
-    z-index: -1;
-}
+    #interface .navigation .search input {
+        border: none;
+        outline: none;
+        font-size: 14px;
+    }
 
-body {
-    background: #6a11cb;
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-}
+    .i-name {
+        color: white;
+        padding: 30px 30px 0 30px;
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 70px;
+        text-shadow: 0 .4rem .8rem #0005;
+        
+    }
+
+    .name {
+        color: white;
+        padding: 30px 30px 0 30px;
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: -10px;
+        margin-bottom: -20px;
+        text-shadow: 0 .4rem .8rem #0005;
+    }
+
+    .values {
+        padding: 30px 30px 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        
+    }
+
+    .values .val-box {
+        background: #fff;
+        width: 235px;
+        padding: 16px 20px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: 0 .4rem .8rem #0005;
+    }
+    .values .val-box i {
+        font-size: 25px;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        color: #fff;
+        margin-right: 15px;
+        box-shadow: 0 .4rem .8rem #0005;
+    }
+
+    .values .val-box:nth-child(1) i {
+        background: #7B74EC;
+    }
+
+    .values .val-box:nth-child(2) i {
+        background: #5C8AF0;
+    }
+
+    .values .val-box:nth-child(3) i {
+        background: #E45D99;
+    }
+
+    .values .val-box:nth-child(4) i {
+        background: #74daec;
+    }
+
+    .values .val-box h3 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .values .val-box span {
+        font-size: 15px;
+        color: #828997;
+    }
+
+    .board {
+        width: 96%;
+        margin: 30px 0 30px 30px;
+        overflow: auto;
+        background: #fff;
+        border-radius: 8px;
+        max-height: calc(89% - 1.6rem);
+        box-shadow: 0 .4rem .8rem #0005;
+        backdrop-filter: blur(7px);
+    }
+
+    .board th {
+        font-weight: 600;
+        font-size: 14px;
+        border-collapse: collapse;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .board td {
+        font-weight: 300;
+        font-size: 15px;
+        border-collapse: collapse;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    tr {
+        border-bottom: 1px solid #eef0f3;
+    }
+
+    thead th {
+        text-transform: uppercase;
+        background: #F9FAFB;
+        text-align: start;
+        padding: 15px;
+    }
+
+    tbody tr td {
+        padding: 10px 15px;
+    }
+
+    @media (max-width: 769px) {
+        #interface {
+            width: 100%;
+            margin-left: 0px;
+            display: inline-block;
+        }
+
+        .values {
+            padding: 30px 30px 0 30px;
+            justify-content: flex-start;
+        }
+
+        .values .val-box {
+            padding: 16px 20px;
+            margin: 10px 20px 10px 0;
+        }
+
+        .board {
+            width: 92%;
+            padding: 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    }
 </style>
