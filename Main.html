@@ -75,20 +75,22 @@
             </li>
         </ul>
     </div>
-
+    <!--
     <div class="main-content">
         <div class="container">
             <h1>Welcome Admin!</h1>
         </div>
-    </div>
+    </div> -->
 
 </body>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
     let btn = document.querySelector('#btn');
     let sidebar = document.querySelector('.sidebar');
 
-    btn.onclick = function () {
+    btn.addEventListener('click', function() {
         sidebar.classList.toggle('active');
-    };
+    });
+});
 </script>
 </html>
