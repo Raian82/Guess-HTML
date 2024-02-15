@@ -6,6 +6,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>ManageWhitelist</title>
 </head>
+
+<div id="sidebarContainer"></div>
 <header class="navigation">
     <div class="n1">
         <div class="search">
@@ -603,6 +605,18 @@ window.onclick = function(event) {
     editModal.style.display = "none";
   }
 }
+
+// Load sidebar content dynamically
+window.addEventListener('DOMContentLoaded', function() {
+  fetch('Main.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('sidebarContainer').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error fetching sidebar content:', error);
+    });
+});
 
 // Load sidebar content dynamically
 window.addEventListener('DOMContentLoaded', function() {
