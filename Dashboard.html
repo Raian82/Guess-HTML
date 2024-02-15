@@ -6,6 +6,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Dashboard</title>
 </head>
+
+<div id="sidebarContainer"></div>
 <body>
     <section id="interface">
         <div class="navigation">
@@ -283,5 +285,15 @@
 </style>
 
 <script>
-    
+    // Load sidebar content dynamically
+window.addEventListener('DOMContentLoaded', function() {
+  fetch('Main.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('sidebarContainer').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error fetching sidebar content:', error);
+    });
+});
 </script>
