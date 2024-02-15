@@ -7,8 +7,8 @@
     <title>ManageWhitelist</title>
 </head>
 
-<div id="sidebarContainer"></div>
-<header class="navigation">
+<body>
+  <header class="navigation">
     <div class="n1">
         <div class="search">
             <i class="bx bx-search-alt-2"></i>
@@ -16,7 +16,6 @@
         </div>
     </div>
 </header>
-<body>
     <main class="table">
         <section class="table_header">
             <h1>Whitelisted Websites</h1>
@@ -104,33 +103,41 @@
 </html>
 
 <style>
+    /* Navigation Header Styles */
     .navigation {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: #3c2a97;
+        background-color: #3c2a97;
         padding: 12px 30px;
         border-bottom: 3px solid #594ef7;
         position: fixed;
-        width: calc(100% - 0px);
+        width: 100%;
+        top: 0; /* Ensure the header sticks to the top of the viewport */
+        z-index: 1000; /* Ensure the header is above other content */
     }
-    .navigation .search {
+
+    .n1 {
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
-        padding: 5px 14px;
+    }
+
+    .search {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 5px 10px;
         border: 1px solid #d7dbe6;
-        border-radius: 4px;
-        background: white;
-        box-shadow: 0 .4rem .8rem #0005;
     }
-    .navigation .search i {
-        margin-right: 14px;
-    }
-    .navigation .search input {
+
+    .search input[type="text"] {
         border: none;
         outline: none;
-        font-size: 14px;
+        background: none;
+        margin-left: 5px;
+    }
+
+    .search i {
+        color: #6c757d;
     }
 
     *{
@@ -159,8 +166,9 @@
     }
 
     main.table {
+        margin-top: 60px; /* Adjust this value as needed */
         width: 82vw;
-        height: 90vh;
+        height: 86vh;
         background-color: #fff5;
         backdrop-filter: blur(7px);
         box-shadow: 0 .4rem .8rem #0005;
