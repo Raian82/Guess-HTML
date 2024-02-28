@@ -6,38 +6,201 @@
   <title>AboutUS</title>
 </head>
 
-<div id="sidebarContainer"></div>
+<div id="sidebar"></div>
 <body>
-  <div>
-    
-  </div>
+  <div class="container">
+    <img src="Images/logocics123.png" alt="Logo 1" class="logo1">
+    <img src="Images/logodic1234.png" alt="Logo 1" class="logo2">
+    <img src="Images/logomsu.png" alt="Logo 1" class="logo3">
+    <img src="Images/guess_logo.png" alt="Logo 1" class="logo4">
+    <div class="header">
+        <h1>Guess Wifi</h1>
+        <p>"Connecting Students, Excluding Intruders"</p>
+    </div>
+    <div class="content">
+        <p>Welcome to our university's exclusive Wi-Fi network, Guess Wi-fi! Designed specifically for our 
+           esteemed students, Guess Wi-fi offers a secure and reliable wireless connection within our vibrant 
+           campus environment.
+        </p>
+        <p>Guess Wi-fi is a closed network accessible only to registered university students, ensuring that your 
+           activities remain private and secure. We understand the importance of a fast and uninterrupted internet 
+           connection, especially in educational settings. That's why we've dedicated robust resources to provide 
+           you with a seamless online experience.
+        </p>
+        <div class="content-names">
+            <div class="names">
+                <span>Researchers and Developers:</span>
+                <span>Thesis Advisers:</span>
+            </div>
+            <div class="names">
+                <span>Nor-Amin Hadji Ali</span>
+                <span>Prof. Joseph C. Sieras</span>
+            </div>
+            <div class="names">
+                <span>Mohammad Ryan Saaban</span>
+                <span>Mohammad Domato</span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 
 <style>
-  body {
-        font-family: "Roboto", sans-serif;
-        min-height: 90vh;
-        /*background: url(Images/guess_logo.png) center / cover;*/
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #6a11cb;
-        background-color: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-        background-color: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-        background-image: url(guess_logo.png) solid;
-    }
+
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #6a11cb;
+            background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+            background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        }
+
+        /* Page Container */
+        .container {
+            background-color: #fff3;
+            backdrop-filter: blur(7px);
+            box-shadow: 0 .4rem .8rem #0005;
+            border-radius: .8rem;
+            overflow: hidden;
+            width: 80%;
+            max-width: 950px;
+            padding: 80px;
+            /*background-image: url('Images/guess_logo.png');
+            background-size: 80% 90%;
+            background-repeat: no-repeat;
+            background-position: center;*/
+        }
+        
+
+        /* About Me Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3c2a97;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: white;
+            font-style: italic;
+        }
+
+        /* About Me Content */
+        .content {
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .content-names {
+            padding-top: 40px;
+        }
+
+        /* Names */
+        .names {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: white;
+            margin-top: 1px;
+        }
+
+        /* Logo 1 and 2 */
+        .logo1 {
+            position: absolute;
+            top: 26px;
+            left: 40px;
+            max-height: 14%;
+        }
+
+        .logo2 {
+            position: absolute;
+            top: 26px;
+            left: 120px;
+            max-height: 14%;
+        }
+
+        /* Logo 3 and 4 */
+        .logo3 {
+            position: absolute;
+            top: 26px;
+            right: 40px;
+            max-height: 14%;
+        }
+
+        .logo4 {
+            position: absolute;
+            max-height: 400px;
+            top: 60px;
+            right: 200px;
+            opacity: 0.3;
+        }
+
+        /* Add this CSS code to your existing styles */
+
+        .container {
+            transition: margin-left 0.3s ease; /* Add transition for smooth animation */
+        }
+
+        .sidebar.active {
+            width: 250px; /* Adjust sidebar width as needed */
+        }
+
+        .container.active {
+            margin-left: 250px; /* Shift container to the right when sidebar is active */
+        }
+
+
 </style>
 
-<script>// Load sidebar content dynamically
-  window.addEventListener('DOMContentLoaded', function() {
-    fetch('Main.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('sidebarContainer').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Error fetching sidebar content:', error);
-      });
-  });
+<script>
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            adjustMainContent();
+        }
+
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            var container = document.querySelector('.container');
+            container.classList.toggle('active');
+        }
+
+        // Load sidebar from sidebar.html
+        window.onload = function() {
+            fetch('Main.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                    // Attach click event to the menu button
+                    document.querySelector('#btn').addEventListener('click', toggleSidebar);
+                });
+        };
+
+        // Adjust main content width when window is resized
+        window.onresize = adjustMainContent;
   </script>
