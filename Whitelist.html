@@ -7,20 +7,22 @@
     <title>ManageWhitelist</title>
 </head>
 
+<div id="sidebar"></div>
 <body>
-  <header class="navigation">
-    <div class="n1">
+    <header class="navigation">
+      <div class="n1">
         <div class="search">
             <i class="bx bx-search-alt-2"></i>
             <input type="text" placeholder="Search">
         </div>
-    </div>
-</header>
-    <main class="table">
-        <section class="table_header">
+      </div>
+    </header>
+    <div class="container">
+      <main class="table">
+          <section class="table_header">
             <h1>Whitelisted Websites</h1>
             <button id="newAccountBtn" class="new-account-btn">Add Website</button>
-        </section>
+          </section>
         <section class="table_body">
             <table>
                 <thead>
@@ -79,7 +81,7 @@
       </div>
 
       <!-- Edit Confirmation Popup -->
-<div id="editModal" class="modal">
+  <div id="editModal" class="modal">
     <div class="modal-content edit-modal">
       <!--<span class="close">&times;</span>-->
       <h2>Edit Website</h2>
@@ -99,6 +101,7 @@
       </form>
     </div>
   </div>
+</div>
 </body>
 </html>
 
@@ -111,7 +114,7 @@
         position: fixed;
         width: 100%;
         top: 0; /* Ensure the header sticks to the top of the viewport */
-        z-index: 1000; /* Ensure the header is above other content */
+        z-index: -1; /* Ensure the header is above other content */
     }
 
     .n1 {
@@ -121,12 +124,14 @@
     }
 
     .search {
+        margin-left: auto;
         display: flex;
         align-items: center;
         background-color: #fff;
-        border-radius: 20px;
+        border-radius: 5px;
         padding: 5px 10px;
         border: 1px solid #d7dbe6;
+        box-shadow: 0 .4rem .8rem #0005;
     }
 
     .search input[type="text"] {
@@ -506,6 +511,18 @@
     background: #e35151;
     color: #fff;
   }
+
+  .container {
+    transition: margin-left 0.3s ease; /* Add transition for smooth animation */
+  }
+
+  .sidebar.active {
+    width: 200px; /* Adjust sidebar width as needed */
+  }
+
+  .container.active {
+    margin-left: 200px; /* Shift container to the right when sidebar is active */
+  }
 </style>
 
 <script>
@@ -614,27 +631,32 @@ window.onclick = function(event) {
   }
 }
 
-// Load sidebar content dynamically
-window.addEventListener('DOMContentLoaded', function() {
-  fetch('Main.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('sidebarContainer').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error fetching sidebar content:', error);
-    });
-});
+// Function to toggle sidebar
+function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            adjustMainContent();
+        }
 
-// Load sidebar content dynamically
-window.addEventListener('DOMContentLoaded', function() {
-  fetch('Main.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('sidebarContainer').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error fetching sidebar content:', error);
-    });
-});
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            var container = document.querySelector('.container');
+            container.classList.toggle('active');
+        }
+
+        // Load sidebar from sidebar.html
+        window.onload = function() {
+            fetch('Main.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                    // Attach click event to the menu button
+                    document.querySelector('#btn').addEventListener('click', toggleSidebar);
+                });
+        };
+
+        // Adjust main content width when window is resized
+        window.onresize = adjustMainContent;
 </script>

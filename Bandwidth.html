@@ -7,7 +7,7 @@
     <title>ManageBandwidth</title>
 </head>
 
-
+<div id="sidebar"></div>
 <body>
   <header class="navigation">
     <div class="n1">
@@ -17,6 +17,7 @@
         </div>
     </div>
 </header>
+<div class="container">
     <main class="table">
         <section class="table_header">
             <h1>Manage Profiles</h1>
@@ -119,6 +120,7 @@
       </form>
     </div>
   </div>
+</div>
 </body>
 </html>
 
@@ -130,7 +132,7 @@
         position: fixed;
         width: 100%;
         top: 0; /* Ensure the header sticks to the top of the viewport */
-        z-index: 1000; /* Ensure the header is above other content */
+        z-index: -1; /* Ensure the header is above other content */
     }
 
     .n1 {
@@ -140,6 +142,7 @@
     }
 
     .search {
+        margin-left: auto;
         display: flex;
         align-items: center;
         background-color: #fff;
@@ -525,6 +528,18 @@
     background: #e35151;
     color: #fff;
   }
+
+  .container {
+    transition: margin-left 0.3s ease; /* Add transition for smooth animation */
+  }
+
+  .sidebar.active {
+    width: 200px; /* Adjust sidebar width as needed */
+  }
+
+  .container.active {
+    margin-left: 200px; /* Shift container to the right when sidebar is active */
+  }
 </style>
 
 
@@ -634,4 +649,32 @@ window.onclick = function(event) {
   }
 }
 
+// Function to toggle sidebar
+function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            adjustMainContent();
+        }
+
+        // Function to toggle sidebar
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('active');
+            var container = document.querySelector('.container');
+            container.classList.toggle('active');
+        }
+
+        // Load sidebar from sidebar.html
+        window.onload = function() {
+            fetch('Main.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                    // Attach click event to the menu button
+                    document.querySelector('#btn').addEventListener('click', toggleSidebar);
+                });
+        };
+
+        // Adjust main content width when window is resized
+        window.onresize = adjustMainContent;
 </script>
