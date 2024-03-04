@@ -127,7 +127,6 @@
         position: fixed;
         width: 100%;
         top: 0; /* Ensure the header sticks to the top of the viewport */
-        z-index: -1; /* Ensure the header is above other content */
     }
 
     .n1 {
@@ -141,7 +140,7 @@
         display: flex;
         align-items: center;
         background-color: #fff;
-        border-radius: 20px;
+        border-radius: 5px;
         padding: 5px 10px;
         border: 1px solid #d7dbe6;
     }
@@ -525,6 +524,10 @@
 
   .container {
     transition: margin-left 0.3s ease; /* Add transition for smooth animation */
+  }
+
+  .sidebar {
+    z-index: 1; /* Ensure the header is above other content */
   }
 
   .sidebar.active {
